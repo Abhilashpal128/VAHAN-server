@@ -13,6 +13,10 @@ const PORT = process.env.PORT;
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("server is running...");
+});
+
 app.post("/register", async (req, resp) => {
   const { fname, lname, contact, email, password, cpassword } = req.body;
   if (!fname || !lname || !contact || !email || !password || !cpassword) {
