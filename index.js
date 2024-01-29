@@ -7,13 +7,12 @@ const cookies = require("cookie-parser");
 const auth = require("./middleware/auth");
 const app = express();
 app.use(cookies());
-app.use(
-  cors({
-    origin: ["https://vahan-client.vercel.app"],
-    methods: ["GET", "POST"],
-    credentials: true,
-  })
-);
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*'); // Allow any origin
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
 
 const PORT = process.env.PORT;
 
