@@ -9,7 +9,7 @@ const app = express();
 app.use(cookies());
 app.use(
   cors({
-    origin: ["https://vahan-server.vercel.app"],
+    origin: ["https://vahan-client.vercel.app"],
     methods: ["GET", "POST"],
     credentials: true,
   })
