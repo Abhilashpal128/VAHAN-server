@@ -7,7 +7,10 @@ const cookies = require("cookie-parser");
 const auth = require("./middleware/auth");
 const app = express();
 app.use(cookies());
-app.use(cors({ origin: '*' }));
+app.use(cors( {
+  origin: 'https://vahan-client.vercel.app',
+  credentials: true,
+}));
 
 const PORT = process.env.PORT;
 
